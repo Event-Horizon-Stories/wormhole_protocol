@@ -42,7 +42,7 @@ Nothing has been rewritten yet. The aggregate still rejects past commands. The d
 
 ## The Code
 
-The new mechanism lives in [`lib/wormhole_protocol_replay_engine.ex`](./lib/wormhole_protocol_replay_engine.ex) and is exercised from [`lib/wormhole_protocol.ex`](./lib/wormhole_protocol.ex).
+The new mechanism lives in [`lib/projectors/replay_engine.ex`](./lib/projectors/replay_engine.ex) and is exercised from [`lib/wormhole_protocol.ex`](./lib/wormhole_protocol.ex).
 
 The preview helper is intentionally small:
 

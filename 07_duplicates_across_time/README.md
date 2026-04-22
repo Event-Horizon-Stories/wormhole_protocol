@@ -44,7 +44,7 @@ The earlier layers still stand:
 
 ## The Code
 
-The new guard lives in [`lib/wormhole_protocol_timeline_aggregate.ex`](./lib/wormhole_protocol_timeline_aggregate.ex).
+The new guard lives in [`lib/aggregates/timeline_aggregate.ex`](./lib/aggregates/timeline_aggregate.ex).
 
 The aggregate now checks identity before anything else:
 

@@ -46,10 +46,10 @@ The cumulative app now handles two kinds of history:
 
 The new files live under `lib/`:
 
-- [`lib/wormhole_protocol_register_reactor.ex`](./lib/wormhole_protocol_register_reactor.ex)
-- [`lib/wormhole_protocol_record_reactor_failure.ex`](./lib/wormhole_protocol_record_reactor_failure.ex)
-- [`lib/wormhole_protocol_shutdown_reactor.ex`](./lib/wormhole_protocol_shutdown_reactor.ex)
-- [`lib/wormhole_protocol_replay_engine.ex`](./lib/wormhole_protocol_replay_engine.ex)
+- [`lib/commands/register_reactor.ex`](./lib/commands/register_reactor.ex)
+- [`lib/commands/record_reactor_failure.ex`](./lib/commands/record_reactor_failure.ex)
+- [`lib/commands/shutdown_reactor.ex`](./lib/commands/shutdown_reactor.ex)
+- [`lib/projectors/replay_engine.ex`](./lib/projectors/replay_engine.ex)
 
 The paradox report looks for failures that become impossible once shutdowns are replayed earlier:
 
