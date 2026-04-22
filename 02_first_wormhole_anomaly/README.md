@@ -44,7 +44,7 @@ Everything else stays true:
 
 ## The Code
 
-The new logic lives in [`lib/wormhole_protocol_timeline_aggregate.ex`](./lib/wormhole_protocol_timeline_aggregate.ex) and [`lib/wormhole_protocol_replay_engine.ex`](./lib/wormhole_protocol_replay_engine.ex).
+The new logic lives in [`lib/aggregates/timeline_aggregate.ex`](./lib/aggregates/timeline_aggregate.ex) and [`lib/projectors/replay_engine.ex`](./lib/projectors/replay_engine.ex).
 
 The aggregate now checks whether a command belongs to an already-settled past:
 

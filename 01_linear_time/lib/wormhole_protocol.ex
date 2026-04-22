@@ -7,13 +7,7 @@ defmodule WormholeProtocol do
   history.
   """
 
-  alias WormholeProtocol.{
-    AllocateOxygen,
-    CommandedApp,
-    OpenTimeline,
-    RegisterSector,
-    TimelineAggregate
-  }
+  alias WormholeProtocol.{Aggregates, CommandedApp, Commands}
 
   @doc """
   Dispatches a command through the Commanded application.
@@ -28,7 +22,7 @@ defmodule WormholeProtocol do
   """
   @spec open_timeline(String.t()) :: :ok | {:error, term()}
   def open_timeline(timeline_id) do
-    dispatch(%OpenTimeline{timeline_id: timeline_id})
+    dispatch(%Commands.OpenTimeline{timeline_id: timeline_id})
   end
 
   @doc """
@@ -37,7 +31,7 @@ defmodule WormholeProtocol do
   @spec register_sector(String.t(), String.t(), non_neg_integer(), String.t()) ::
           :ok | {:error, term()}
   def register_sector(timeline_id, sector_id, initial_oxygen, created_at) do
-    dispatch(%RegisterSector{
+    dispatch(%Commands.RegisterSector{
       timeline_id: timeline_id,
       sector_id: sector_id,
       initial_oxygen: initial_oxygen,
@@ -54,7 +48,7 @@ defmodule WormholeProtocol do
     command_id =
       Keyword.get(opts, :command_id, "cmd-#{timeline_id}-#{sector_id}-#{effective_at}-#{amount}")
 
-    dispatch(%AllocateOxygen{
+    dispatch(%Commands.AllocateOxygen{
       timeline_id: timeline_id,
       sector_id: sector_id,
       amount: amount,
@@ -66,9 +60,9 @@ defmodule WormholeProtocol do
   @doc """
   Returns the aggregate state for a timeline.
   """
-  @spec timeline_state!(String.t()) :: TimelineAggregate.t()
+  @spec timeline_state!(String.t()) :: Aggregates.TimelineAggregate.t()
   def timeline_state!(timeline_id) do
-    Commanded.aggregate_state(CommandedApp, TimelineAggregate, timeline_id)
+    Commanded.aggregate_state(CommandedApp, Aggregates.TimelineAggregate, timeline_id)
   end
 
   @doc """

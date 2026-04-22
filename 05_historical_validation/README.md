@@ -46,7 +46,7 @@ Everything earlier still works:
 
 ## The Code
 
-The new validation lives in [`lib/wormhole_protocol_timeline_aggregate.ex`](./lib/wormhole_protocol_timeline_aggregate.ex).
+The new validation lives in [`lib/aggregates/timeline_aggregate.ex`](./lib/aggregates/timeline_aggregate.ex).
 
 For rewrite mode, the aggregate now previews the event before accepting it:
 

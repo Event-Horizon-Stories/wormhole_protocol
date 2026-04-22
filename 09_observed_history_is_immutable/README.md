@@ -47,7 +47,7 @@ Earlier capabilities remain:
 
 ## The Code
 
-The new invariant lives in [`lib/wormhole_protocol_timeline_aggregate.ex`](./lib/wormhole_protocol_timeline_aggregate.ex).
+The new invariant lives in [`lib/aggregates/timeline_aggregate.ex`](./lib/aggregates/timeline_aggregate.ex).
 
 The aggregate converts the paradox report into a rejection:
 

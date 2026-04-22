@@ -46,7 +46,7 @@ Earlier layers still hold:
 
 ## The Code
 
-The new code lives in [`lib/wormhole_protocol_replay_engine.ex`](./lib/wormhole_protocol_replay_engine.ex).
+The new code lives in [`lib/projectors/replay_engine.ex`](./lib/projectors/replay_engine.ex).
 
 The report compares the present before and after replay:
 

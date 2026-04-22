@@ -49,9 +49,9 @@ The new layer is that the aggregate can switch to `:rewrite_history`.
 
 The new pieces live in:
 
-- [`lib/wormhole_protocol_set_reality_policy.ex`](./lib/wormhole_protocol_set_reality_policy.ex)
-- [`lib/wormhole_protocol_reality_policy_set.ex`](./lib/wormhole_protocol_reality_policy_set.ex)
-- [`lib/wormhole_protocol_timeline_aggregate.ex`](./lib/wormhole_protocol_timeline_aggregate.ex)
+- [`lib/commands/set_reality_policy.ex`](./lib/commands/set_reality_policy.ex)
+- [`lib/events/reality_policy_set.ex`](./lib/events/reality_policy_set.ex)
+- [`lib/aggregates/timeline_aggregate.ex`](./lib/aggregates/timeline_aggregate.ex)
 
 The policy command becomes part of the aggregate's decision surface:
 

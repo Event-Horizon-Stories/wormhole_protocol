@@ -40,7 +40,7 @@ We build the first version of `WormholeProtocol`:
 
 - a `WormholeProtocol.CommandedApp`
 - a `WormholeProtocol.Router`
-- a `WormholeProtocol.TimelineAggregate`
+- a `WormholeProtocol.Aggregates.TimelineAggregate`
 - a tiny public API in [`lib/wormhole_protocol.ex`](./lib/wormhole_protocol.ex)
 
 The protocol can:
@@ -54,9 +54,9 @@ The protocol can:
 This lesson's core files are:
 
 - [`lib/wormhole_protocol.ex`](./lib/wormhole_protocol.ex)
-- [`lib/wormhole_protocol_router.ex`](./lib/wormhole_protocol_router.ex)
-- [`lib/wormhole_protocol_timeline_aggregate.ex`](./lib/wormhole_protocol_timeline_aggregate.ex)
-- [`lib/wormhole_protocol_replay_engine.ex`](./lib/wormhole_protocol_replay_engine.ex)
+- [`lib/router/router.ex`](./lib/router/router.ex)
+- [`lib/aggregates/timeline_aggregate.ex`](./lib/aggregates/timeline_aggregate.ex)
+- [`lib/projectors/replay_engine.ex`](./lib/projectors/replay_engine.ex)
 
 The public API keeps the first chapter readable:
 

@@ -6,20 +6,7 @@ defmodule WormholeProtocol do
   across time, but observed events remain the anchor of reality.
   """
 
-  alias WormholeProtocol.{
-    AllocateOxygen,
-    CommandedApp,
-    OpenTimeline,
-    OxygenAllocated,
-    ReactorShutdown,
-    RecordReactorFailure,
-    RegisterReactor,
-    RegisterSector,
-    ReplayEngine,
-    SetRealityPolicy,
-    ShutdownReactor,
-    TimelineAggregate
-  }
+  alias WormholeProtocol.{Aggregates, CommandedApp, Commands, Events, Projectors}
 
   @spec dispatch(struct()) :: :ok | {:error, term()}
   def dispatch(command) do
@@ -27,12 +14,12 @@ defmodule WormholeProtocol do
   end
 
   @spec open_timeline(String.t()) :: :ok | {:error, term()}
-  def open_timeline(timeline_id), do: dispatch(%OpenTimeline{timeline_id: timeline_id})
+  def open_timeline(timeline_id), do: dispatch(%Commands.OpenTimeline{timeline_id: timeline_id})
 
   @spec register_sector(String.t(), String.t(), non_neg_integer(), String.t()) ::
           :ok | {:error, term()}
   def register_sector(timeline_id, sector_id, initial_oxygen, created_at) do
-    dispatch(%RegisterSector{
+    dispatch(%Commands.RegisterSector{
       timeline_id: timeline_id,
       sector_id: sector_id,
       initial_oxygen: initial_oxygen,
@@ -46,7 +33,7 @@ defmodule WormholeProtocol do
     command_id =
       Keyword.get(opts, :command_id, "cmd-#{timeline_id}-#{sector_id}-#{effective_at}-#{amount}")
 
-    dispatch(%AllocateOxygen{
+    dispatch(%Commands.AllocateOxygen{
       timeline_id: timeline_id,
       sector_id: sector_id,
       amount: amount,
@@ -62,7 +49,7 @@ defmodule WormholeProtocol do
         ) ::
           :ok | {:error, term()}
   def set_reality_policy(timeline_id, policy, decided_at) do
-    dispatch(%SetRealityPolicy{
+    dispatch(%Commands.SetRealityPolicy{
       timeline_id: timeline_id,
       policy: policy,
       decided_at: decided_at
@@ -71,7 +58,7 @@ defmodule WormholeProtocol do
 
   @spec register_reactor(String.t(), String.t(), String.t()) :: :ok | {:error, term()}
   def register_reactor(timeline_id, reactor_id, created_at) do
-    dispatch(%RegisterReactor{
+    dispatch(%Commands.RegisterReactor{
       timeline_id: timeline_id,
       reactor_id: reactor_id,
       created_at: created_at
@@ -81,7 +68,7 @@ defmodule WormholeProtocol do
   @spec record_reactor_failure(String.t(), String.t(), String.t(), String.t()) ::
           :ok | {:error, term()}
   def record_reactor_failure(timeline_id, reactor_id, failed_at, reason) do
-    dispatch(%RecordReactorFailure{
+    dispatch(%Commands.RecordReactorFailure{
       timeline_id: timeline_id,
       reactor_id: reactor_id,
       failed_at: failed_at,
@@ -94,7 +81,7 @@ defmodule WormholeProtocol do
     command_id =
       Keyword.get(opts, :command_id, "shutdown-#{timeline_id}-#{reactor_id}-#{effective_at}")
 
-    dispatch(%ShutdownReactor{
+    dispatch(%Commands.ShutdownReactor{
       timeline_id: timeline_id,
       reactor_id: reactor_id,
       effective_at: effective_at,
@@ -102,9 +89,9 @@ defmodule WormholeProtocol do
     })
   end
 
-  @spec timeline_state!(String.t()) :: TimelineAggregate.t()
+  @spec timeline_state!(String.t()) :: Aggregates.TimelineAggregate.t()
   def timeline_state!(timeline_id) do
-    Commanded.aggregate_state(CommandedApp, TimelineAggregate, timeline_id)
+    Commanded.aggregate_state(CommandedApp, Aggregates.TimelineAggregate, timeline_id)
   end
 
   @spec rebuilding_time_story!() :: map()
@@ -119,9 +106,9 @@ defmodule WormholeProtocol do
 
     state = timeline_state!(timeline_id)
 
-    ReplayEngine.rebuild_report(
+    Projectors.ReplayEngine.rebuild_report(
       state.facts,
-      %OxygenAllocated{
+      %Events.OxygenAllocated{
         timeline_id: timeline_id,
         sector_id: "hab-3",
         amount: 15,
@@ -143,9 +130,9 @@ defmodule WormholeProtocol do
     state = timeline_state!(timeline_id)
 
     report =
-      ReplayEngine.paradox_report(
+      Projectors.ReplayEngine.paradox_report(
         state.facts,
-        %ReactorShutdown{
+        %Events.ReactorShutdown{
           timeline_id: timeline_id,
           reactor_id: "reactor-7",
           effective_at: "09:50",

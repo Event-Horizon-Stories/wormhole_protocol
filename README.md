@@ -6,6 +6,8 @@ At first the system behaves like any clean event-sourced service. Commands arriv
 
 The result is a cumulative Elixir tutorial series where the same `WormholeProtocol` application grows chapter by chapter. Every lesson is a standalone Mix project. Every lesson keeps the same shared namespace and OTP app. What changes is the pressure on the timeline and the Commanded rule needed to survive it.
 
+Inside each lesson, the code is organized the way a real Commanded app usually wants to be read: commands, events, aggregates, router, runtime modules, and projectors each have their own place under `lib/`. The public entry point still stays at `lib/wormhole_protocol.ex`, but the internals no longer pretend a serious app can stay flat forever.
+
 ## Interactive Companions
 
 Livebook companions for the full series live in [`livebooks/`](./livebooks/README.md).
