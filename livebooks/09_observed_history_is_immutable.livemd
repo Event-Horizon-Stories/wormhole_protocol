@@ -1,0 +1,27 @@
+# Lesson 09 Livebook: Observed History Is Immutable
+
+The paradox report now becomes a hard rejection.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../09_observed_history_is_immutable"}
+])
+```
+
+## Run The Observed-History Scenario
+
+```elixir
+story = WormholeProtocol.observed_history_story!()
+
+%{
+  shutdown: story.shutdown,
+  invalidated_failures: story.invalidated_failures,
+  reactor_status: story.reactor_status
+}
+```
+
+## Confirm The Observed Failure Still Anchors The Stream
+
+```elixir
+story.wormhole_origin_erased?
+```

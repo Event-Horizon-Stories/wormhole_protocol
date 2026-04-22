@@ -1,0 +1,27 @@
+# Lesson 05 Livebook: Historical Validation
+
+Rewrite mode is no longer enough. The aggregate now asks whether the replayed past was actually possible.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../05_historical_validation"}
+])
+```
+
+## Run The Historical Validation Scenario
+
+```elixir
+story = WormholeProtocol.historical_validation_story!()
+
+%{
+  impossible: story.impossible,
+  available_oxygen: story.available_oxygen,
+  allocations: story.allocations
+}
+```
+
+## Confirm That The Accepted Present Stayed Intact
+
+```elixir
+Enum.map(story.allocations, & &1.command_id)
+```
