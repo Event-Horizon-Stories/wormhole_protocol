@@ -4,9 +4,7 @@
 
 At first the system behaves like any clean event-sourced service. Commands arrive in order. Events record what happened. State moves forward without argument. Then the wormholes open. A command meant for 10:05 appears at 09:55 instead, and the whole protocol has to decide whether the past can be rejected, rewritten, replayed, anchored, or forked into another branch of reality.
 
-Each chapter is its own standalone Mix project, but the same `WormholeProtocol` keeps running through all of them. The shared namespace stays intact. The OTP app stays the same. What changes is the strain on the timeline and the rule the colony reaches for when that strain becomes impossible to ignore.
-
-Inside each lesson, the code is organized the way a real Commanded app usually wants to be read: commands, events, aggregates, router, runtime modules, and projectors each have their own place under `lib/`. The public entry point still stays at `lib/wormhole_protocol.ex`, but the internals no longer pretend a serious app can stay flat forever.
+Each chapter is a standalone Mix project, but the same `WormholeProtocol` persists through all of them. The names stay the same. The pressure does not.
 
 ## Interactive Companions
 
