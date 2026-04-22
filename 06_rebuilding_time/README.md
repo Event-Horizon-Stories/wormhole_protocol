@@ -2,13 +2,13 @@
 
 The protocol has been replaying history for several chapters already. Until now, most of that work happened behind the curtain.
 
-This lesson pulls the mechanism into view. Operators do not just want a yes-or-no answer about a wormhole command anymore. They want to see what the rewind changed, which commands shifted position, and what the rebuilt present looks like on the other side.
+Now the mechanism has to come into view. Operators do not just want a yes-or-no answer about a wormhole command anymore. They want to see what the rewind changed, which commands shifted position, and what the rebuilt present looks like on the other side.
 
-That makes the replay engine part of the teaching surface. The chapter is not about adding a new type of command. It is about making the core event-sourced mechanism inspectable.
+The replay engine stops hiding behind the decision and starts showing its work.
 
 Interactive companion: [`../livebooks/06_rebuilding_time.livemd`](../livebooks/06_rebuilding_time.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how to turn replay into an explicit report instead of a hidden internal step
 - how to compare the current present with the replayed present
@@ -23,17 +23,17 @@ Did the available oxygen drop? Which command moved forward in history? Which par
 
 So the replay engine begins reporting what it sees. The protocol is still event-sourced. It is simply becoming legible.
 
-## The Commanded Concept
+## Under The Hood
 
-This chapter teaches replay as an observable mechanism.
+Replay becomes an observable mechanism.
 
 In Commanded, replay is usually implicit in aggregate state reconstruction. Here we make it explicit by returning a report that compares the current event ordering with the one produced after a hypothetical event is inserted into history.
 
-That lets the learner inspect the consequences of replay directly instead of treating it like invisible framework magic.
+That lets the reader inspect the consequences of replay directly instead of treating it like invisible framework magic.
 
-## What We're Building
+## Protocol Changes
 
-We keep the lesson 5 app and add:
+The protocol keeps the historical validation work and adds:
 
 - `ReplayEngine.rebuild_report/2`
 - a richer `rebuilding_time_story!/0`
@@ -82,20 +82,20 @@ You should see the current present with `40` oxygen remaining, the replayed pres
 
 ## What the Tests Prove
 
-The chapter test proves that replay can now be inspected as data:
+The test proves that replay can now be inspected as data:
 
 - the current and replayed oxygen totals differ
 - the inserted command changes the ordering of later facts
 
-That is an important teaching step. Replay is no longer an abstract promise. It is a concrete report the reader can inspect.
+Replay is no longer an abstract promise. It is a concrete report the reader can inspect.
 
 ## Why This Matters
 
 When systems become temporal, observability matters as much as correctness.
 
-It is one thing for the protocol to say that history shifted. It is another thing to show exactly how the shift changed the present. This chapter gives the learner that second view.
+It is one thing for the protocol to say that history shifted. It is another thing to show exactly how the shift changed the present. Here, that second view is finally on the table.
 
-## Commanded Takeaway
+## What Holds
 
 Replay is not only how state is rebuilt. It can also be exposed as a deliberate comparison tool when the domain needs to inspect alternate histories.
 
@@ -105,6 +105,6 @@ The replay engine can now show what changed, but identity is still fragile.
 
 If the same command appears twice, once in the present and once through a wormhole, the protocol still needs a way to decide whether those are two commands or one command seen twice.
 
-## Next Lesson
+## Next Shift
 
-In lesson 7, command identity becomes absolute and duplicate intent is rejected even when it crosses time.
+Next, command identity becomes absolute and duplicate intent is rejected even when it crosses time.

@@ -8,7 +8,7 @@ Instead of rewriting the accepted timeline, the protocol creates another one. Th
 
 Interactive companion: [`../livebooks/10_forked_timelines.livemd`](../livebooks/10_forked_timelines.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how to model branching as separate streams rather than in-place mutation
 - how to use the same public API against multiple timeline IDs
@@ -21,19 +21,19 @@ Mission control tries the wormhole allocation against timeline A and gets the ri
 
 So the protocol opens timeline B. It replays the accepted history into that new stream, inserts the wormhole allocation where it belongs, and lets the new present emerge on its own terms. Timeline A still says 40 units remain. Timeline B says 25. Neither answer erases the other.
 
-This is the ending the series has been earning from the start. Not “anything goes.” Not “the past can never change.” A system that can hold one anchored history and one explored alternative without lying about either.
+It is not “anything goes.” It is not “the past can never change.” It is a system that can hold one anchored history and one explored alternative without lying about either.
 
-## The Commanded Concept
+## Under The Hood
 
-This lesson teaches branching through separate aggregate streams.
+Branching happens through separate aggregate streams.
 
 Commanded already gives you stream identity. Here we use that identity directly. The protocol keeps the original timeline stream untouched and creates a second stream that replays the same prior events plus the divergent wormhole event.
 
-That lets the reader see a powerful event-sourced idea in concrete form: alternate presents can be modeled as alternate histories rather than as one mutable state trying to remember every possibility.
+That makes one event-sourced idea concrete: alternate presents can be modeled as alternate histories rather than as one mutable state trying to remember every possibility.
 
-## What We're Building
+## Protocol Changes
 
-We keep the immutable-history rule from lesson 9 and add:
+The immutable-history rule remains, and the protocol adds:
 
 - `forked_timelines_story!/0`
 - a private `fork_timeline!/3` helper that replays source events into a new timeline ID
@@ -70,7 +70,7 @@ events =
   |> Enum.sort_by(&event_order_key/1)
 ```
 
-Those events are then replayed into `timeline_b` through the same public API the earlier lessons already taught.
+Those events are then replayed into `timeline_b` through the same public API the rest of the repository has been using all along.
 
 ## Trying It Out
 
@@ -90,21 +90,21 @@ You should see timeline A reject the wormhole allocation with `:requires_timelin
 
 ## What the Tests Prove
 
-The final chapter test proves the full resolution:
+The final test proves the full resolution:
 
 - the original timeline keeps its anchored present
 - the alternate timeline is rebuilt as a separate stream
 - earlier command ordering and replay logic still hold inside the branch
 
-That is the cumulative promise of the whole repo made concrete.
+That is the repository's answer made concrete.
 
 ## Why This Matters
 
-Branching is the cleanest answer the series has offered because it honors both halves of the problem.
+Branching is the cleanest answer the protocol can give because it honors both halves of the problem.
 
 Observed history remains protected. Alternate history still becomes inspectable. The protocol stops pretending there must always be one final answer for every temporal anomaly.
 
-## Commanded Takeaway
+## What Holds
 
 Commands can travel through time.
 
@@ -112,13 +112,13 @@ Events decide what actually happened, and separate streams let you model what ha
 
 ## What Still Hurts
 
-This series ends where a larger system would begin asking new operational questions:
+The branch is open, but a larger system would start asking harder operational questions here:
 
 - which branch becomes canonical?
 - how are branch-specific read models projected?
 - how long are alternate streams retained?
 
-Those are real problems. They simply belong one layer past the core Commanded lesson this repo was built to teach.
+Those are real problems. They belong one layer past the boundary this repository is holding.
 
 ## Where The Series Could Go Next
 

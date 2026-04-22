@@ -1,10 +1,10 @@
 # wormhole_protocol
 
-`wormhole_protocol` teaches Commanded by following a colony that learns the hard way that intent is cheap and history is not.
+`wormhole_protocol` follows a colony that learns the hard way that intent is cheap and history is not.
 
 At first the system behaves like any clean event-sourced service. Commands arrive in order. Events record what happened. State moves forward without argument. Then the wormholes open. A command meant for 10:05 appears at 09:55 instead, and the whole protocol has to decide whether the past can be rejected, rewritten, replayed, anchored, or forked into another branch of reality.
 
-The result is a cumulative Elixir tutorial series where the same `WormholeProtocol` application grows chapter by chapter. Every lesson is a standalone Mix project. Every lesson keeps the same shared namespace and OTP app. What changes is the pressure on the timeline and the Commanded rule needed to survive it.
+Each chapter is its own standalone Mix project, but the same `WormholeProtocol` keeps running through all of them. The shared namespace stays intact. The OTP app stays the same. What changes is the strain on the timeline and the rule the colony reaches for when that strain becomes impossible to ignore.
 
 Inside each lesson, the code is organized the way a real Commanded app usually wants to be read: commands, events, aggregates, router, runtime modules, and projectors each have their own place under `lib/`. The public entry point still stays at `lib/wormhole_protocol.ex`, but the internals no longer pretend a serious app can stay flat forever.
 
@@ -25,7 +25,7 @@ Livebook companions for the full series live in [`livebooks/`](./livebooks/READM
 
 ## The Journey
 
-Each lesson is its own standalone Mix project, but the protocol keeps the same identity from beginning to end:
+The protocol keeps the same identity from beginning to end. Each directory is a self-contained checkpoint in the same worsening situation:
 
 1. [`01_linear_time`](./01_linear_time/README.md)  
    Commanded starts in calm water: commands become events and state moves forward.
@@ -50,7 +50,7 @@ Each lesson is its own standalone Mix project, but the protocol keeps the same i
 
 ## Final Inquiry Shape
 
-By the end of the series, the full question is no longer “how do I dispatch a command?”
+By then, the question is no longer “how do I dispatch a command?”
 
 It becomes:
 
@@ -61,11 +61,11 @@ which observations are allowed to resist it,
 and what present state follows from the chosen history?
 ```
 
-That is the Commanded lesson underneath the story. Aggregates define the consistency boundary. Events anchor what became true. State is only the current reading of that recorded history.
+By then, dispatch is the easy part. The harder question is what kind of present the colony is willing to defend once history starts arguing with itself.
 
-## Beyond the Series
+## Beyond This Timeline
 
-The ten chapters cover the core Commanded ideas this story needs:
+The ten chapters carry the colony through the core pressures this story needs:
 
 - commands versus events
 - aggregate validation
@@ -82,7 +82,7 @@ There are natural extensions beyond this arc:
 - snapshotting and retention strategies once streams grow large
 - a dedicated event journal repo feeding the protocol rather than the protocol owning all replay inputs itself
 
-Those belong one layer past this series. Here the point is to make the core mental shift stick: commands are requests, events are history, and history is what every present must answer to.
+Those questions wait one layer beyond this arc. Here the colony is still learning the boundary that matters most: commands ask, events answer, and every present has to live with the history that survives.
 
 ## Tooling
 
@@ -93,7 +93,7 @@ erlang 27.3
 elixir 1.18.1-otp-27
 ```
 
-Each lesson is a standalone Mix project. Enter the lesson directory you want, fetch dependencies if needed, then run its tests or shell:
+Each chapter is a standalone Mix project. Enter the directory you want, fetch dependencies if needed, then run its tests or shell:
 
 ```bash
 cd 01_linear_time
@@ -102,13 +102,13 @@ mix test
 iex -S mix
 ```
 
-The Livebooks depend on the chapter directories through local path dependencies, so they stay tied to the real lesson code rather than drifting into notebook-only examples.
+The Livebooks depend on the chapter directories through local path dependencies, so they stay tied to the real code instead of drifting into notebook-only examples.
 
 ## Start Here
 
 Begin with [`01_linear_time`](./01_linear_time/README.md).
 
-That lesson teaches the clean Commanded baseline before the anomalies begin:
+It opens in calm air, before anything starts arriving from the wrong side of time:
 
 ```elixir
 :ok = WormholeProtocol.open_timeline("colony-a")
@@ -116,4 +116,4 @@ That lesson teaches the clean Commanded baseline before the anomalies begin:
 :ok = WormholeProtocol.allocate_oxygen("colony-a", "hab-3", 40, "10:00")
 ```
 
-Once that flow feels natural, the rest of the series can start bending time around it.
+Once that flow feels ordinary, the rest of the repository has something solid to break.

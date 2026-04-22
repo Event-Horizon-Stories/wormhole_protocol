@@ -4,11 +4,11 @@ The network is quiet enough to trust.
 
 Mars opens a timeline. A habitat registers its oxygen reserve. Mission control issues an allocation command, and the event lands exactly where everyone expects it to land. The present feels stable because nothing has challenged the order of things yet.
 
-That calm is useful. Before the wormholes start bending the protocol, Commanded should first feel clean and ordinary in your hands. This lesson builds that baseline and lets the timeline move forward without argument.
+For now, the stream has no reason to distrust itself. Nothing has arrived out of order. Nothing has asked the aggregate to reopen the past.
 
 Interactive companion: [`../livebooks/01_linear_time.livemd`](../livebooks/01_linear_time.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how a Commanded application routes commands into an aggregate stream
 - how commands and events differ in the baseline linear flow
@@ -23,9 +23,9 @@ Habitat `hab-3` draws oxygen at 10:00. It draws again at 10:05. Operators do not
 
 That is the first shape of the Wormhole Command Protocol: intent enters the stream, fact leaves it, and state advances one accepted event at a time.
 
-## The Commanded Concept
+## Under The Hood
 
-This lesson focuses on the core Commanded loop:
+At this point, the protocol is doing only the core loop:
 
 1. dispatch a command
 2. let the aggregate decide whether it is valid
@@ -34,7 +34,7 @@ This lesson focuses on the core Commanded loop:
 
 The important mental split is simple. A command says what someone wants. An event says what the system accepted as true.
 
-## What We're Building
+## Protocol Changes
 
 We build the first version of `WormholeProtocol`:
 
@@ -51,7 +51,7 @@ The protocol can:
 
 ## The Code
 
-This lesson's core files are:
+The core files in this state are:
 
 - [`lib/wormhole_protocol.ex`](./lib/wormhole_protocol.ex)
 - [`lib/router/router.ex`](./lib/router/router.ex)
@@ -125,7 +125,7 @@ When Commanded is new, it helps to start where nothing is strange.
 
 Linear time makes the event-sourced contract visible without extra noise. You can see the command boundary, the event boundary, and the rebuilt state before any temporal anomaly tries to blur them together.
 
-## Commanded Takeaway
+## What Holds
 
 In Commanded, state is not the source of truth. Accepted events are.
 
@@ -137,6 +137,6 @@ The timeline only feels safe because every command arrives in order.
 
 The moment a command appears with a timestamp earlier than the accepted present, the baseline rules stop being enough.
 
-## Next Lesson
+## Next Shift
 
-In lesson 2, the first wormhole anomaly arrives: a command reaches the system too late for the time it claims to belong to.
+Next, the first wormhole anomaly arrives: a command reaches the system too late for the time it claims to belong to.
