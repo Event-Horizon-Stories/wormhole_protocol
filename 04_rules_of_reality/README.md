@@ -4,11 +4,11 @@ The question is no longer whether the past can be different. The replay preview 
 
 The real question now is who decides whether that difference is allowed to count.
 
-In this chapter, the answer moves into the aggregate itself. The timeline declares a policy. It can reject commands from the past, or it can accept them and rewrite history. The same incoming command now produces different outcomes depending on the rule of reality that the aggregate is enforcing.
+Here, the answer moves into the aggregate itself. The timeline declares a policy. It can reject commands from the past, or it can accept them and rewrite history. The same incoming command now produces different outcomes depending on the rule the aggregate is enforcing.
 
 Interactive companion: [`../livebooks/04_rules_of_reality.livemd`](../livebooks/04_rules_of_reality.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how aggregates can encode domain policy, not just input validation
 - how to model configuration changes as commands and events
@@ -23,15 +23,15 @@ That choice cannot live in a comment or in an operator handbook. It has to live 
 
 So the protocol becomes more honest. It records the policy it is using, then applies that policy when the next impossible command arrives.
 
-## The Commanded Concept
+## Under The Hood
 
-This lesson teaches that aggregates define the rules of reality for their consistency boundary.
+The aggregate is no longer just checking values. It is defining the rules of reality for its consistency boundary.
 
 In Commanded, that does not just mean checking values. It also means making policy part of the stream. A configuration change like “rewrite history when past commands arrive” becomes its own command and event, and the aggregate's later decisions depend on that recorded choice.
 
-## What We're Building
+## Protocol Changes
 
-We extend the existing app with:
+The protocol extends the existing app with:
 
 - `SetRealityPolicy`
 - `RealityPolicySet`
@@ -109,7 +109,7 @@ This is where Commanded begins to feel like a real domain model.
 
 The aggregate is no longer just checking arithmetic. It is naming the rule that decides whether a changed past is even allowed into the stream.
 
-## Commanded Takeaway
+## What Holds
 
 In Commanded, policy can be evented too.
 
@@ -121,6 +121,6 @@ Accepting a past command under a rewrite policy is dramatic, but it is still car
 
 The protocol can now bend time on purpose, yet it still does not ask whether the rewritten past was actually possible.
 
-## Next Lesson
+## Next Shift
 
-In lesson 5, the aggregate stops validating against the current present and starts validating against replayed historical state.
+Next, the aggregate stops validating against the current present and starts validating against replayed historical state.

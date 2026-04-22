@@ -1,8 +1,8 @@
 # Livebooks
 
-These notebooks mirror the ten tutorial lessons in `wormhole_protocol`.
+These notebooks track the same ten ruptures in `wormhole_protocol`.
 
-Each notebook uses the same shared OTP app name, `:wormhole_protocol`, through a local path dependency in `Mix.install/2`, so the notebook examples run against the real lesson code rather than a second copy.
+Each notebook uses the same shared OTP app name, `:wormhole_protocol`, through a local path dependency in `Mix.install/2`, so the examples run against the real chapter code rather than a second copy.
 
 - [`01_linear_time.livemd`](./01_linear_time.livemd)
 - [`02_first_wormhole_anomaly.livemd`](./02_first_wormhole_anomaly.livemd)

@@ -4,16 +4,16 @@ The colony has seen the anomaly. Now it wants to know what the anomaly would cos
 
 A wormhole command asking for oxygen at 09:55 may be easy to reject. It is much harder to look directly at the alternate history and admit what it would do to the present. In this chapter, the protocol does exactly that. It builds a preview of the rewritten timeline without yet accepting it.
 
-That is the first moment the tutorial starts to feel like event sourcing under pressure. State stops looking like a stable object and starts looking like a reading taken from a particular ordering of facts.
+This is the first moment the present stops feeling solid. State stops looking like a stable object and starts looking like a reading taken from a particular ordering of facts.
 
 Interactive companion: [`../livebooks/03_temporal_conflict.livemd`](../livebooks/03_temporal_conflict.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how to preview a hypothetical event without committing it to the stream
 - how replay reveals the cost of rewriting history
 - why present state is only one projection of accepted event order
-- how the chapter still keeps the lesson 2 rejection rule intact
+- how the protocol still keeps the earlier rejection rule intact
 
 ## The Story
 
@@ -23,17 +23,17 @@ If that claim were accepted, the rest of the known day would have to be replayed
 
 This is the temporal conflict. Not bad data. Not a timeout. A history that leads to a different now.
 
-## The Commanded Concept
+## Under The Hood
 
-This lesson is about replay as a reasoning tool.
+Replay steps forward as a reasoning tool.
 
 Commanded aggregates rebuild state from events anyway. Here we expose that idea directly. Instead of recording a new event, the replay engine previews what the state would become if one extra event were inserted into the historical sequence.
 
 That preview is not yet a commitment. It is a way to inspect the consequence of a changed past before deciding what to do about it.
 
-## What We're Building
+## Protocol Changes
 
-We keep the same command flow from lesson 2 and add:
+The command flow from the anomaly still stands, and the protocol adds:
 
 - `ReplayEngine.preview/2`
 - a `temporal_conflict_story!/0` helper that compares the current present with a replayed one
@@ -81,17 +81,17 @@ You should see a map where the current timeline has `10` oxygen left, but the re
 
 ## What the Tests Prove
 
-The chapter test keeps the earlier linear and anomaly behavior, then adds a new assertion that the replay preview changes the allocation order and the resulting present.
+The test keeps the earlier linear and anomaly behavior, then adds a new assertion that the replay preview changes the allocation order and the resulting present.
 
 That is important because replay is not theoretical here. The test shows the exact branch point and the exact cost.
 
 ## Why This Matters
 
-Many event-sourced systems say that state is derived from history. This chapter makes you feel it.
+Many event-sourced systems say that state is derived from history. Here, the difference becomes tangible.
 
 The moment the replayed present differs from the current one, the abstraction stops being decorative. History becomes the thing that really matters.
 
-## Commanded Takeaway
+## What Holds
 
 Replay is not just a recovery mechanism. It is the reason a changed history produces a changed present.
 
@@ -101,6 +101,6 @@ The protocol can now preview alternate reality, but it still has no rule for cho
 
 Should a past command always be rejected? Can it ever be accepted? If it is accepted, who gets to decide that reality should bend?
 
-## Next Lesson
+## Next Shift
 
-In lesson 4, the aggregate stops behaving like a passive guard and declares its policy for reality itself.
+Next, the aggregate stops behaving like a passive guard and declares its policy for reality itself.

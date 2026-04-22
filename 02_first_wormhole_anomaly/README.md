@@ -4,11 +4,11 @@ The protocol is still young when the first impossible request arrives.
 
 Mission control receives an oxygen allocation at 10:05, but the command carries an effective time of 09:55. Nothing about the payload is malformed. The problem is deeper than syntax. The request belongs to a past the aggregate has already moved beyond.
 
-This is the first real fracture in the series. The same `WormholeProtocol` app from lesson 1 is still here. The same timeline, sector, and allocation flow still work. What changes is that the aggregate now has to notice when arrival order and event-time order diverge.
+It is the first real fracture in the protocol. The same timeline, sector, and allocation flow are still here, but the aggregate can no longer pretend that arrival order and event-time order mean the same thing.
 
 Interactive companion: [`../livebooks/02_first_wormhole_anomaly.livemd`](../livebooks/02_first_wormhole_anomaly.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how to detect a past-arriving command inside an aggregate
 - why current state alone is not enough once time order matters
@@ -23,15 +23,15 @@ The colony cannot casually accept that claim. If the command belongs in the past
 
 So the protocol does the only honest thing it can do in this chapter: it refuses the command and names the boundary it crossed.
 
-## The Commanded Concept
+## Under The Hood
 
-This lesson teaches a Commanded truth that becomes more important later: aggregates validate commands against the history they currently accept as real.
+The aggregate validates commands against the history it currently accepts as real.
 
 Right now the aggregate does not rewrite the timeline. It simply guards it. If a command arrives earlier than the latest accepted effective time for a sector, the aggregate rejects it rather than pretending linear time still holds.
 
-## What We're Building
+## Protocol Changes
 
-We keep the lesson 1 app and add one new rule:
+The protocol keeps the linear baseline and adds one new rule:
 
 - sectors now track `latest_effective_at`
 - oxygen commands are rejected when they try to arrive earlier than that accepted point
@@ -87,7 +87,7 @@ You should see the anomaly rejected with `{:command_arrived_in_the_past, ...}` a
 
 ## What the Tests Prove
 
-[`test/wormhole_protocol_test.exs`](./test/wormhole_protocol_test.exs) still proves the lesson 1 linear behavior, and it now adds a regression test for the wormhole anomaly.
+[`test/wormhole_protocol_test.exs`](./test/wormhole_protocol_test.exs) still proves the linear baseline, and it now adds a regression test for the wormhole anomaly.
 
 That matters because this chapter is not a new demo. It is the same app with a sharper rule about time.
 
@@ -100,7 +100,7 @@ The first anomaly forces the reader to separate two ideas that often stay blurre
 
 Commanded does not solve that question for you. Your aggregate does.
 
-## Commanded Takeaway
+## What Holds
 
 An aggregate is not just a state machine. It is the boundary that decides whether a command belongs inside the accepted history.
 
@@ -110,6 +110,6 @@ Rejecting the past is safe, but it is also blunt.
 
 The system can now recognize a temporal anomaly, but it still cannot answer the harder question: what would happen if the colony chose to insert that command into history anyway?
 
-## Next Lesson
+## Next Shift
 
-In lesson 3, the protocol stops guessing and previews the conflict by replaying the timeline with a hypothetical past event inserted into it.
+Next, the protocol stops guessing and previews the conflict by replaying the timeline with a hypothetical past event inserted into it.

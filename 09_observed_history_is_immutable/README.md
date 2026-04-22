@@ -2,13 +2,13 @@
 
 The colony can no longer afford polite ambiguity.
 
-Once the protocol has seen a reactor paradox in full, it has to decide what outranks what. This chapter makes the answer explicit. Observed events become the anchor. Commands may still arrive from the past, but they are rejected if replay would erase the footing of something the system has already recorded as observed reality.
+Once the protocol has seen a reactor paradox in full, it has to decide what outranks what. The answer becomes explicit. Observed events become the anchor. Commands may still arrive from the past, but they are rejected if replay would erase the footing of something the system has already recorded as observed reality.
 
-This is the sternest lesson in the series. The aggregate stops treating replay as a thought experiment and turns it into a guardrail.
+This is the sternest turn in the protocol so far. The aggregate stops treating replay as a thought experiment and turns it into a guardrail.
 
 Interactive companion: [`../livebooks/09_observed_history_is_immutable.livemd`](../livebooks/09_observed_history_is_immutable.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how to turn a replay report into an aggregate invariant
 - how to reject commands that invalidate observed history
@@ -23,9 +23,9 @@ So when the 09:50 shutdown command arrives, the protocol refuses to treat it as 
 
 Reality is no longer defined only by what a command asks for. It is defined by what the event history has already anchored as true.
 
-## The Commanded Concept
+## Under The Hood
 
-This chapter teaches a clean Commanded boundary:
+The boundary is clean:
 
 - commands are proposals
 - events are accepted facts
@@ -33,9 +33,9 @@ This chapter teaches a clean Commanded boundary:
 
 The aggregate uses replay to inspect the candidate history, then rejects commands that would invalidate anchored observations.
 
-## What We're Building
+## Protocol Changes
 
-We keep the reactor model from lesson 8 and add one crucial rule:
+The reactor model remains, and the protocol adds one crucial rule:
 
 - past reactor shutdowns in rewrite mode must pass `ensure_observed_history_survives/3`
 
@@ -79,7 +79,7 @@ You should see the paradox preview still reporting `"wormhole_origin"` as invali
 
 ## What the Tests Prove
 
-The chapter test proves two things:
+The test proves two things:
 
 - replay still shows the alternate history clearly
 - the aggregate refuses to admit that history into the stream once it would invalidate an observed failure
@@ -90,9 +90,9 @@ That is the moment the protocol becomes anchored instead of merely descriptive.
 
 Event-sourced systems become dangerous if every command can reopen every fact.
 
-This chapter gives the reader a durable principle: once a fact has become anchored observed history, later commands may have to yield to it. Commanded gives you the tools to encode that principle directly inside the aggregate.
+The principle is durable: once a fact has become anchored observed history, later commands may have to yield to it. Commanded gives you the tools to encode that principle directly inside the aggregate.
 
-## Commanded Takeaway
+## What Holds
 
 Commands can ask for change. Events decide what the system is willing to keep as reality.
 
@@ -102,6 +102,6 @@ Rejecting the shutdown preserves one timeline, but it does not solve the operato
 
 The command may be too dangerous for the anchored stream, yet still worth examining somewhere else.
 
-## Next Lesson
+## Next Shift
 
-In lesson 10, the protocol stops forcing a single answer and materializes a second timeline instead.
+Next, the protocol stops forcing a single answer and materializes a second timeline instead.

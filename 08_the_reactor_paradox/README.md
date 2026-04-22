@@ -4,11 +4,11 @@ The protocol has been under strain before. This time the strain is existential.
 
 A reactor failure at 10:00 is what opened the wormhole in the first place. Then a shutdown command appears with an effective time of 09:50. If the shutdown belongs in accepted history, the failure that caused the wormhole may no longer make sense. The command begins to lean against the event that made the command possible.
 
-This chapter does not solve the paradox yet. It exposes it clearly. The protocol can still accept the shutdown under rewrite mode, but the replay report now shows the contradiction in full view.
+The protocol does not solve the paradox yet. It exposes it clearly. The shutdown can still be accepted under rewrite mode, but the replay report now shows the contradiction in full view.
 
 Interactive companion: [`../livebooks/08_the_reactor_paradox.livemd`](../livebooks/08_the_reactor_paradox.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how to extend the same aggregate with a second domain surface
 - how replay can reveal paradox instead of just arithmetic conflict
@@ -23,15 +23,15 @@ Then the shutdown command arrives and claims that the reactor should have gone d
 
 That is the paradox: the event still exists, but the history beneath it no longer holds.
 
-## The Commanded Concept
+## Under The Hood
 
-This lesson teaches that replay can reveal invalidated observations, not just changed projections.
+Replay starts revealing invalidated observations, not just changed projections.
 
 The aggregate now manages both oxygen sectors and reactors. The replay engine can preview a past shutdown and report whether that shutdown would invalidate a later observed failure. The stream can accept the new event, but the report makes clear that reality has split into something unstable.
 
-## What We're Building
+## Protocol Changes
 
-We keep all earlier lesson behavior and add:
+The earlier behavior remains, and the protocol adds:
 
 - reactor registration and failure events
 - reactor shutdown commands
@@ -97,7 +97,7 @@ This is where event sourcing stops feeling like a storage strategy and starts fe
 
 The paradox is not a UI problem or an API problem. It is a question about which history the system is willing to let stand once an event already on record depends on a different past.
 
-## Commanded Takeaway
+## What Holds
 
 Replay can expose contradictions in recorded history even when the stream still accepts the new event.
 
@@ -107,6 +107,6 @@ Seeing the paradox is not the same thing as preventing it.
 
 The protocol can now explain why the shutdown is dangerous, but it still allows the command into history under rewrite mode.
 
-## Next Lesson
+## Next Shift
 
-In lesson 9, observed events become immutable anchors and paradox-inducing commands are rejected instead of merely reported.
+Next, observed events become immutable anchors and paradox-inducing commands are rejected instead of merely reported.

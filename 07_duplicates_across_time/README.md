@@ -4,11 +4,11 @@ The wormhole does not just threaten order. It threatens identity.
 
 A command can now appear once in the accepted present and again in the past. If the protocol only looks at timestamps, it may mistake one intent for two. That would be more than a bookkeeping error. It would let the same decision become multiple facts.
 
-This lesson hardens the series around idempotency. The aggregate starts treating `command_id` as absolute truth, no matter when the command shows up.
+The protocol hardens around idempotency. The aggregate starts treating `command_id` as absolute truth, no matter when the command shows up.
 
 Interactive companion: [`../livebooks/07_duplicates_across_time.livemd`](../livebooks/07_duplicates_across_time.livemd)
 
-## What You'll Learn
+## What Changes
 
 - how to enforce idempotency inside an aggregate stream
 - why duplicate detection must survive temporal anomalies
@@ -23,15 +23,15 @@ That leaves the protocol with a simple choice. Either command IDs mean something
 
 The aggregate chooses durability. A command that has already become part of accepted history cannot become new history again just because it found another path through time.
 
-## The Commanded Concept
+## Under The Hood
 
-This chapter teaches idempotency as a domain rule.
+Idempotency becomes a domain rule.
 
 Commanded gives you a stream boundary. Your aggregate decides what counts as the same intent within that boundary. Here the rule is explicit: if the `command_id` is already present in accepted history, the new command is rejected even if its timestamp is different.
 
-## What We're Building
+## Protocol Changes
 
-We keep the replay reporting from lesson 6 and add:
+The replay reporting remains, and the protocol adds:
 
 - duplicate detection through `seen_command_ids`
 - a `duplicates_across_time_story!/0` scenario
@@ -80,7 +80,7 @@ You should get a map showing the second command rejected as `{:duplicate_command
 
 The tests prove two layers at once:
 
-- replay reporting from lesson 6 still works
+- replay reporting still works
 - a duplicate command is rejected even when it arrives with a past timestamp
 
 That second assertion is the important one. Time anomalies no longer get to bypass identity.
@@ -91,7 +91,7 @@ Systems under temporal pressure become fragile fast if identity is negotiable.
 
 Once the protocol accepts that commands may arrive out of time, it has to become stricter about what counts as the same command. Otherwise the event stream becomes vulnerable to double-spending intent.
 
-## Commanded Takeaway
+## What Holds
 
 Idempotency is not a transport concern alone. In a Commanded system, it often belongs in the aggregate's own definition of valid history.
 
@@ -101,6 +101,6 @@ The protocol can now handle duplicate intent, but paradox is waiting just beyond
 
 Some commands do not merely duplicate history. They threaten to erase the event that made their own arrival possible.
 
-## Next Lesson
+## Next Shift
 
-In lesson 8, a reactor shutdown arriving in the past creates a genuine paradox against a later observed failure.
+Next, a reactor shutdown arriving in the past creates a genuine paradox against a later observed failure.
