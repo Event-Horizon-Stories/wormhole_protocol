@@ -1,0 +1,27 @@
+# Lesson 01 Livebook: Linear Time
+
+The protocol starts in calm water.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../01_linear_time"}
+])
+```
+
+## Run The Baseline Timeline
+
+```elixir
+story = WormholeProtocol.linear_story!()
+
+%{
+  available_oxygen: story.available_oxygen,
+  allocations: story.allocations,
+  facts: Enum.map(story.facts, & &1.event.__struct__)
+}
+```
+
+## Inspect The Accepted Sector State
+
+```elixir
+story.sector
+```

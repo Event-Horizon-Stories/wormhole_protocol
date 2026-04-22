@@ -1,0 +1,26 @@
+# Lesson 07 Livebook: Duplicates Across Time
+
+Identity has to survive the wormhole.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../07_duplicates_across_time"}
+])
+```
+
+## Run The Duplicate Scenario
+
+```elixir
+story = WormholeProtocol.duplicates_across_time_story!()
+
+%{
+  duplicate: story.duplicate,
+  seen_command_ids: story.seen_command_ids
+}
+```
+
+## Inspect The Accepted Allocation History
+
+```elixir
+story.allocations
+```

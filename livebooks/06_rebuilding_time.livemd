@@ -1,0 +1,30 @@
+# Lesson 06 Livebook: Rebuilding Time
+
+The replay engine now returns a report that makes the rewind visible.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../06_rebuilding_time"}
+])
+```
+
+## Generate A Replay Report
+
+```elixir
+report = WormholeProtocol.rebuilding_time_story!()
+
+%{
+  current_available_oxygen: report.current_available_oxygen,
+  replayed_available_oxygen: report.replayed_available_oxygen,
+  inserted_at: report.inserted_at
+}
+```
+
+## Inspect Which Commands Shifted
+
+```elixir
+%{
+  shifted_commands: report.shifted_commands,
+  replayed_allocations: report.replayed_allocations
+}
+```

@@ -1,0 +1,27 @@
+# Lesson 02 Livebook: First Wormhole Anomaly
+
+The first impossible command arrives and the aggregate refuses it.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../02_first_wormhole_anomaly"}
+])
+```
+
+## Watch The Anomaly Get Rejected
+
+```elixir
+story = WormholeProtocol.anomaly_story!()
+
+%{
+  anomaly: story.anomaly,
+  latest_effective_at: story.latest_effective_at,
+  allocations: story.allocations
+}
+```
+
+## Compare Arrival Time To Accepted Time Order
+
+```elixir
+Enum.map(story.allocations, &{&1.command_id, &1.effective_at})
+```

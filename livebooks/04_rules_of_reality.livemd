@@ -1,0 +1,28 @@
+# Lesson 04 Livebook: Rules Of Reality
+
+The same wormhole command produces a different outcome once the aggregate changes its policy.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../04_rules_of_reality"}
+])
+```
+
+## Watch The Policy Change Matter
+
+```elixir
+story = WormholeProtocol.rules_of_reality_story!()
+
+%{
+  rejected: story.rejected,
+  rewritten: story.rewritten,
+  reality_policy: story.reality_policy,
+  available_oxygen: story.available_oxygen
+}
+```
+
+## Inspect The Rewritten Ordering
+
+```elixir
+story.allocations
+```

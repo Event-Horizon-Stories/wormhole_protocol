@@ -1,0 +1,27 @@
+# Lesson 03 Livebook: Temporal Conflict
+
+Replay shows what the present would become if the wormhole command were accepted.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../03_temporal_conflict"}
+])
+```
+
+## Compare The Two Presents
+
+```elixir
+story = WormholeProtocol.temporal_conflict_story!()
+
+%{
+  current_available_oxygen: story.current_available_oxygen,
+  projected_available_oxygen: story.projected_available_oxygen,
+  would_go_negative?: story.would_go_negative?
+}
+```
+
+## Inspect The Reordered Allocation History
+
+```elixir
+story.projected_allocations
+```

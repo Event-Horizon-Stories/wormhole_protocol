@@ -1,0 +1,27 @@
+# Lesson 10 Livebook: Forked Timelines
+
+The anchored stream stays intact while a second timeline takes the divergent event.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../10_forked_timelines"}
+])
+```
+
+## Materialize The Fork
+
+```elixir
+story = WormholeProtocol.forked_timelines_story!()
+
+%{
+  attempted: story.attempted,
+  timeline_a_available_oxygen: story.timeline_a_available_oxygen,
+  timeline_b_available_oxygen: story.timeline_b_available_oxygen
+}
+```
+
+## Compare The Two Allocation Orders
+
+```elixir
+story.timeline_b_allocations
+```

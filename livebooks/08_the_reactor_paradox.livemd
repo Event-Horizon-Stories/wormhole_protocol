@@ -1,0 +1,27 @@
+# Lesson 08 Livebook: The Reactor Paradox
+
+The shutdown is accepted, but replay shows what it erases.
+
+```elixir
+Mix.install([
+  {:wormhole_protocol, path: "../08_the_reactor_paradox"}
+])
+```
+
+## Run The Reactor Paradox
+
+```elixir
+story = WormholeProtocol.reactor_paradox_story!()
+
+%{
+  shutdown: story.shutdown,
+  invalidated_failures: story.invalidated_failures,
+  wormhole_origin_erased?: story.wormhole_origin_erased?
+}
+```
+
+## Inspect The Reactor State After Acceptance
+
+```elixir
+story.reactor_status
+```
