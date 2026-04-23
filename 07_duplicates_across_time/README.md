@@ -103,4 +103,4 @@ Some commands do not merely duplicate history. They threaten to erase the event 
 
 ## Next Shift
 
-Next, a reactor shutdown arriving in the past creates a genuine paradox against a later observed failure.
+In [`08_the_reactor_paradox`](../08_the_reactor_paradox/README.md), a reactor shutdown arriving in the past creates a genuine paradox against a later observed failure.

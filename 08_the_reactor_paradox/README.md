@@ -109,4 +109,4 @@ The protocol can now explain why the shutdown is dangerous, but it still allows 
 
 ## Next Shift
 
-Next, observed events become immutable anchors and paradox-inducing commands are rejected instead of merely reported.
+In [`09_observed_history_is_immutable`](../09_observed_history_is_immutable/README.md), observed events become immutable anchors and paradox-inducing commands are rejected instead of merely reported.
