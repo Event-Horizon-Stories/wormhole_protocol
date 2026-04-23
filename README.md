@@ -102,10 +102,13 @@ The Livebooks depend on the chapter directories through local path dependencies,
 
 ## Timeline
 
-`wormhole_protocol` takes place after the colony, network, and trade-system eras
-established in [`mars_colony_otp`](https://github.com/Event-Horizon-Stories/mars_colony_otp),
-[`signal_network`](https://github.com/Event-Horizon-Stories/signal_network), and
-[`galactic_trade_authority`](https://github.com/Event-Horizon-Stories/galactic_trade_authority).
+`wormhole_protocol` takes place after the colony, fleet, network, dispatch, and
+trade-system eras established in
+[`mars_colony_otp`](https://github.com/Event-Horizon-Stories/mars_colony_otp),
+[`helios_fleet`](https://github.com/Event-Horizon-Stories/helios_fleet),
+[`signal_network`](https://github.com/Event-Horizon-Stories/signal_network),
+[`orbital_dispatch`](https://github.com/Event-Horizon-Stories/orbital_dispatch),
+and [`galactic_trade_authority`](https://github.com/Event-Horizon-Stories/galactic_trade_authority).
 
 It belongs to the point in the shared setting where durable history is no longer
 only bureaucratic or operational. Time itself has become disputed infrastructure.
@@ -113,7 +116,9 @@ only bureaucratic or operational. Time itself has become disputed infrastructure
 ## Related Stories
 
 - Earlier colony era: [`mars_colony_otp`](https://github.com/Event-Horizon-Stories/mars_colony_otp)
+- Earlier fleet era: [`helios_fleet`](https://github.com/Event-Horizon-Stories/helios_fleet)
 - Earlier network era: [`signal_network`](https://github.com/Event-Horizon-Stories/signal_network)
+- Earlier dispatch era: [`orbital_dispatch`](https://github.com/Event-Horizon-Stories/orbital_dispatch)
 - Earlier bureaucracy: [`galactic_trade_authority`](https://github.com/Event-Horizon-Stories/galactic_trade_authority)
 - Far-future inquiry: [`horizon_engine`](https://github.com/Event-Horizon-Stories/horizon_engine)
 
