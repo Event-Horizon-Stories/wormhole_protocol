@@ -100,6 +100,23 @@ iex -S mix
 
 The Livebooks depend on the chapter directories through local path dependencies, so they stay tied to the real code instead of drifting into notebook-only examples.
 
+## Timeline
+
+`wormhole_protocol` takes place after the colony, network, and trade-system eras
+established in [`mars_colony_otp`](https://github.com/Event-Horizon-Stories/mars_colony_otp),
+[`signal_network`](https://github.com/Event-Horizon-Stories/signal_network), and
+[`galactic_trade_authority`](https://github.com/Event-Horizon-Stories/galactic_trade_authority).
+
+It belongs to the point in the shared setting where durable history is no longer
+only bureaucratic or operational. Time itself has become disputed infrastructure.
+
+## Related Stories
+
+- Earlier colony era: [`mars_colony_otp`](https://github.com/Event-Horizon-Stories/mars_colony_otp)
+- Earlier network era: [`signal_network`](https://github.com/Event-Horizon-Stories/signal_network)
+- Earlier bureaucracy: [`galactic_trade_authority`](https://github.com/Event-Horizon-Stories/galactic_trade_authority)
+- Far-future inquiry: [`horizon_engine`](https://github.com/Event-Horizon-Stories/horizon_engine)
+
 ## Start Here
 
 Begin with [`01_linear_time`](./01_linear_time/README.md).
