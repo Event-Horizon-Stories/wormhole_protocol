@@ -116,4 +116,4 @@ The colony can trust that the protocol is replaying history. It still cannot ins
 
 ## Next Shift
 
-Next, the replay engine steps into the light and shows exactly how a changed past rebuilds the present.
+In [`06_rebuilding_time`](../06_rebuilding_time/README.md), the replay engine steps into the light and shows exactly how a changed past rebuilds the present.

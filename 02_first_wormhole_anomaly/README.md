@@ -112,4 +112,4 @@ The system can now recognize a temporal anomaly, but it still cannot answer the 
 
 ## Next Shift
 
-Next, the protocol stops guessing and previews the conflict by replaying the timeline with a hypothetical past event inserted into it.
+In [`03_temporal_conflict`](../03_temporal_conflict/README.md), the protocol stops guessing and previews the conflict by replaying the timeline with a hypothetical past event inserted into it.

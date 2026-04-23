@@ -139,4 +139,4 @@ The moment a command appears with a timestamp earlier than the accepted present,
 
 ## Next Shift
 
-Next, the first wormhole anomaly arrives: a command reaches the system too late for the time it claims to belong to.
+In [`02_first_wormhole_anomaly`](../02_first_wormhole_anomaly/README.md), the first wormhole anomaly arrives: a command reaches the system too late for the time it claims to belong to.

@@ -123,4 +123,4 @@ The protocol can now bend time on purpose, yet it still does not ask whether the
 
 ## Next Shift
 
-Next, the aggregate stops validating against the current present and starts validating against replayed historical state.
+In [`05_historical_validation`](../05_historical_validation/README.md), the aggregate stops validating against the current present and starts validating against replayed historical state.

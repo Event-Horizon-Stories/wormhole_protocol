@@ -107,4 +107,4 @@ If the same command appears twice, once in the present and once through a wormho
 
 ## Next Shift
 
-Next, command identity becomes absolute and duplicate intent is rejected even when it crosses time.
+In [`07_duplicates_across_time`](../07_duplicates_across_time/README.md), command identity becomes absolute and duplicate intent is rejected even when it crosses time.

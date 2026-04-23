@@ -103,4 +103,4 @@ Should a past command always be rejected? Can it ever be accepted? If it is acce
 
 ## Next Shift
 
-Next, the aggregate stops behaving like a passive guard and declares its policy for reality itself.
+In [`04_rules_of_reality`](../04_rules_of_reality/README.md), the aggregate stops behaving like a passive guard and declares its policy for reality itself.

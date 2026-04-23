@@ -104,4 +104,4 @@ The command may be too dangerous for the anchored stream, yet still worth examin
 
 ## Next Shift
 
-Next, the protocol stops forcing a single answer and materializes a second timeline instead.
+In [`10_forked_timelines`](../10_forked_timelines/README.md), the protocol stops forcing a single answer and materializes a second timeline instead.
